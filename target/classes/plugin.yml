@@ -1,0 +1,13 @@
+name: highcraft
+version: '1.0-SNAPSHOT'
+main: org.bapr5.highcraft.Highcraft
+api-version: '1.20'
+commands:
+  island:
+    description: Your island menu
+    usage: /island
+    aliases: [/i,/isle,/is,/island]
+  menu:
+    description: Your island menu
+    usage: /menu
+    aliases: [ /m,/menu ]
