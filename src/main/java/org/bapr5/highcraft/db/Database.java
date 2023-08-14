@@ -16,8 +16,12 @@ public class Database {
     }
 
     public void savePlayerXP(String playerName, int xp) {
+        if (!dataConfig.contains(playerName)) {
+            // Создание новой записи о игроке с начальным значением PlayerXP
+            dataConfig.set(playerName + ".xp", 0);
+        }
+        xp += dataConfig.getInt(playerName + ".xp");
         dataConfig.set(playerName + ".xp", xp);
-
         try {
             dataConfig.save(dataFile);
         } catch (IOException e) {
