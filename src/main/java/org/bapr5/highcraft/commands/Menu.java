@@ -41,8 +41,8 @@ public class Menu implements CommandExecutor,Listener {
         else {
             Player player = (Player) sender;
             Inventory inv = Bukkit.createInventory(player, 9 * 3, invName);
-            inv.setItem(11, getItem(new ItemStack(Material.GRASS_BLOCK), "My Island", "Check my island settings"));
-            inv.setItem(13, getItem(new ItemStack(Material.IRON_PICKAXE), "Go to island!", "Go to your island!"));
+            inv.setItem(11, getItem(new ItemStack(Material.PLAYER_HEAD), "Me", "Check your class settings"));
+            inv.setItem(13, getItem(new ItemStack(Material.IRON_PICKAXE), "", "Go to your island!"));
             inv.setItem(15, getItem(new ItemStack(Material.GRASS_BLOCK), "Profile settings", "Check my profile settings"));
             player.openInventory(inv);
         }
