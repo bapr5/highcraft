@@ -1,6 +1,7 @@
 package org.bapr5.highcraft;
 
 import org.bapr5.highcraft.commands.Menu;
+import org.bapr5.highcraft.handlers.JoinHandler;
 import org.bapr5.highcraft.handlers.XPhandler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,6 +13,7 @@ public final class Highcraft extends JavaPlugin {
         Bukkit.getLogger().info("HIGHCRAFT initiated!~");
         getCommand("menu").setExecutor(new Menu(this));
         new XPhandler(this);
+        new JoinHandler(this);
     }
 
     @Override
