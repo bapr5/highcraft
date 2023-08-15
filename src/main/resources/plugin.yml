@@ -11,3 +11,7 @@ commands:
     description: Your island menu
     usage: /menu
     aliases: [ /m,/menu ]
+  classes:
+    description: Available Classes
+    usage: /classes
+    aliases: [ /classes ]
