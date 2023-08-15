@@ -1,6 +1,5 @@
 package org.bapr5.highcraft;
 
-import org.bapr5.highcraft.commands.Menu;
 import org.bapr5.highcraft.commands.PlayerClasses;
 import org.bapr5.highcraft.handlers.JoinHandler;
 import org.bapr5.highcraft.handlers.XPhandler;
