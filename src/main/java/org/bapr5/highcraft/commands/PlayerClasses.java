@@ -27,22 +27,26 @@ public class PlayerClasses implements CommandExecutor,Listener {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String [] args){
-        String invName="[выбирай свой класс]";
+        String invName="[pick your class]";
         if(!(sender instanceof Player)){
             sender.sendMessage("HIGHCRAFT menu is only available to PLAYERS, not CONSOLES!");
         }
         else {
             Player player = (Player) sender;
             Inventory inv = Bukkit.createInventory(player, 9 * 3, invName);
-            inv.setItem(9, getHead( "", "Gnome"));
-            inv.setItem(26, getHead( "", "Go to your island!"));
-            inv.setItem(25, getHead( "", "Check my profile settings"));
+            inv.setItem(9, getHead( "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJhZDQ5Yzc0YTdjZGY3NTEzOTVmMmVlNjRiNWMyZDhjZjMyNmE0YzA1MzRlNzZlMzhmNzMzZTQ0YTcwODRkOCJ9fX0=", "§rKnight","§rKnight specializes in defensive melee combat.","§oFor every scar I've received, I've given ten back."));
+            inv.setItem(10, getHead( "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRjZGFlNjFlYTg2YjEyNjI0N2ZjNWM5MjY4NWI1NzU1ODA5YTVkYTBlMjRmYmEyYjJhMGM2NDdiMDkwOWRhMSJ9fX0=", "§rBarbarian","§rBarbarian specializes in aggressive melee combat.","§oSo I drink and fight and feast and die."));
+            inv.setItem(11, getHead( "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQ1ZDcxZjM3MjU5NDBiMGE0YjQyYTU3ZGU2N2IxYjMyOTI4Y2RiZTA5N2E0OTkwNTM5ODgyMmIyMmQ5Y2ZiNyJ9fX0=", "§rThief","§rThief specializes in stealth operations and agile melee combat.","§oI see the world as a gift meant for me."));
+            inv.setItem(12, getHead( "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDk1MzllNDYyZGY1ODQ2ZTgxYWZkOGY5ZDk0NDIzOWJiOWZhM2RkNGM4ODc3OGE2NTY2MmVjZjZmNTZhIn19fQ==", "§rRanger","§rRanger specializes in ranged combat and exploring.","§oNot all paths are found on the forest floor."));
+            inv.setItem(13, getHead( "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODJmMWQ1NDNlOWEwOGJhZDVkMzYxMjYyMzdiMTllOGMxZWZiYjNiOGFiODU0YWI0MjIwNGE3YjBkZWQzMzA1MSJ9fX0=", "§rCrafter","§rCrafter specializes in making useful items and unique inventions.","§oMy armor transcends the limitations of mere flesh and bone."));
+            inv.setItem(14, getHead( "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGM4M2QyYjAzZWI2Nzg1NzA5YWRjMDlhZjNlMTQ1ZTgzMjQ1ODRiMDlmZWUwNzk4ZjFlMmYzZDNhOGM3Y2ZhIn19fQ==", "§rWizard","§rWizard specializes in mastering long forgotten sorcery skills.","§oThe law has its place -- as a footnote in my spellbook."));
+
             player.openInventory(inv);
         }
         return true;
     }
-    private ItemStack getHead(String player, String name, String ... lore){
-        ItemStack head = SkullCreator.itemFromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJhZDQ5Yzc0YTdjZGY3NTEzOTVmMmVlNjRiNWMyZDhjZjMyNmE0YzA1MzRlNzZlMzhmNzMzZTQ0YTcwODRkOCJ9fX0=");
+    private ItemStack getHead(String base64, String name, String ... lore){
+        ItemStack head = SkullCreator.itemFromBase64(base64);
         ItemMeta headmeta = head.getItemMeta();
         headmeta.setDisplayName(name);
         List<String> lores = new ArrayList<>();
@@ -52,31 +56,7 @@ public class PlayerClasses implements CommandExecutor,Listener {
         }
         headmeta.setLore(lores);
         head.setItemMeta(headmeta);
-        /*
-        ItemStack head = new ItemStack(Material.PLAYER_HEAD);
-        SkullMeta skullMeta = (SkullMeta) head.getItemMeta();
-        UUID playerid = UUID.fromString("f121aea189344ade9d6e7a1dfd8dd638");
-        skullMeta.setOwningPlayer(Bukkit.getOfflinePlayer(playerid));
 
-        ItemMeta headmeta = head.getItemMeta();
-        headmeta.setDisplayName(name);
-
-        List<String> lores = new ArrayList<>();
-        for(String s: lore)
-        {
-            lores.add(s);
-        }
-        headmeta.setLore(lores);
-        headmeta.
-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGM4M2QyYjAzZWI2Nzg1NzA5YWRjMDlhZjNlMTQ1ZTgzMjQ1ODRiMDlmZWUwNzk4ZjFlMmYzZDNhOGM3Y2ZhIn19fQ==
-                GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-
-        profile.getProperties().put("textures", new Property("textures", url));
-
-
-        head.setItemMeta(skullMeta);
-
-         */
         return head;
 
     }

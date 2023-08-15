@@ -12,7 +12,7 @@ public final class Highcraft extends JavaPlugin {
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("HIGHCRAFT initiated!~");
-        getCommand("menu").setExecutor(new Menu(this));
+        //   getCommand("menu").setExecutor(new Menu(this));
         getCommand("classes").setExecutor(new PlayerClasses(this));
         new XPhandler(this);
         new JoinHandler(this);
