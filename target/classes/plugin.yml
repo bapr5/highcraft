@@ -8,10 +8,14 @@ commands:
     usage: /island
     aliases: [/i,/isle,/is,/island]
   menu:
-    description: Your island menu
+    description: test menu
     usage: /menu
     aliases: [ /m,/menu ]
   classes:
     description: Available Classes
     usage: /classes
     aliases: [ /classes ]
+  class:
+    description: Your Class
+    usage: /class
+    aliases: [ /class ]

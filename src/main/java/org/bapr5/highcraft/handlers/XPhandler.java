@@ -18,6 +18,6 @@ public class XPhandler implements Listener{
         Integer XP = event.getAmount();
         Database db = new Database();
       //  Bukkit.getLogger().info("got XP "+player+" "+XP.toString());
-        db.savePlayerXP(player,XP);
+        db.SavePlayerXP(player,XP);
     }
 }

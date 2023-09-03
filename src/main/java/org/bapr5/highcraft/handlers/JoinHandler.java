@@ -18,7 +18,7 @@ public class JoinHandler implements Listener {
         Integer XP = 0;
         Database db = new Database();
         Bukkit.getLogger().info("Got new player "+player+", set XP to 0");
-        db.savePlayerXP(player,XP);
+        db.SavePlayerXP(player,XP);
     }
     }
 }

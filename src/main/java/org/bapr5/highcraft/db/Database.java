@@ -15,7 +15,7 @@ public class Database {
         dataConfig = YamlConfiguration.loadConfiguration(dataFile);
     }
 
-    public void savePlayerXP(String playerName, int xp) {
+    public void SavePlayerXP(String playerName, int xp) {
         if (!dataConfig.contains(playerName)) {
             dataConfig.set(playerName + ".xp", 0);
         }
@@ -28,12 +28,7 @@ public class Database {
         }
     }
     public void SetPlayerClass(String playerName, String playerClass) {
-        if (!dataConfig.contains(playerName)) {
-            if (dataConfig.contains(playerName)) {
-                dataConfig.set(playerName + ".class", playerClass);
-            }
-        }
-
+        dataConfig.set(playerName + ".class", playerClass);
         try {
             dataConfig.save(dataFile);
         } catch (IOException e) {
