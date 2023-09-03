@@ -27,9 +27,11 @@ public class Database {
             e.printStackTrace();
         }
     }
-    public void addPlayerClass(String playerName, String playerClass) {
+    public void SetPlayerClass(String playerName, String playerClass) {
         if (!dataConfig.contains(playerName)) {
-            dataConfig.set(playerName + ".class", new String());
+            if (dataConfig.contains(playerName)) {
+                dataConfig.set(playerName + ".class", playerClass);
+            }
         }
 
         try {
@@ -38,4 +40,15 @@ public class Database {
             e.printStackTrace();
         }
     }
+    public String GetPlayerClass(String playerName) {
+        if (dataConfig.contains(playerName)) {
+            if (dataConfig.contains(playerName+".class")) {
+                String myClass = dataConfig.getString(playerName + ".class");
+                return myClass;
+            }
+        }
+
+        return null;
+    }
+
 }

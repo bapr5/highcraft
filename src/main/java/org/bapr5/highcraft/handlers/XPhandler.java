@@ -2,12 +2,11 @@ package org.bapr5.highcraft.handlers;
 import org.bapr5.highcraft.Highcraft;
 import org.bapr5.highcraft.db.Database;
 import org.bukkit.Bukkit;
-//import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerExpChangeEvent;
 
-//import javax.xml.crypto.Data;
+
 
 public class XPhandler implements Listener{
     public XPhandler(Highcraft plugin){

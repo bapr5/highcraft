@@ -1,10 +1,10 @@
 package org.bapr5.highcraft.commands;
 
 import org.bapr5.highcraft.Highcraft;
+import org.bapr5.highcraft.db.Database;
 import org.bapr5.highcraft.libs.SkullCreator;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,12 +15,12 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
+
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 //import sun.jvm.hotspot.ui.tree.CStringTreeNodeAdapter;
 
 public class PlayerClasses implements CommandExecutor,Listener {
@@ -30,12 +30,21 @@ public class PlayerClasses implements CommandExecutor,Listener {
     String invName="[pick your class]";
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event){
+        Database db = new Database();
         if(!event.getView().getTitle().equals(invName)){
             return;
         }
         Player player = (Player) event.getWhoClicked();
         int slot = event.getSlot();
         event.setCancelled(true);
+        switch (slot){
+            case 9:db.SetPlayerClass(player.getName(),"Knight");
+            case 10:db.SetPlayerClass(player.getName(),"Barbarian");
+            case 11:db.SetPlayerClass(player.getName(),"Thief");
+            case 12:db.SetPlayerClass(player.getName(),"Archer");
+            case 13:db.SetPlayerClass(player.getName(),"Crafter");
+            case 14:db.SetPlayerClass(player.getName(),"Wizard");
+        }
       //  Bukkit.getLogger().info("CANCELLING");
     }
     @Override
